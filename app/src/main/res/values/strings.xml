@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Bitcoin Quiz</string>
+
+
+    <string name="details">Quiz Details:</string>
+    <string name="details_content_L1"> Question 1 = 4 points. </string>
+    <string name="details_content_L2"> Questions 2, 3, and 4 = 2 points each. </string>
+    <string name="question1">Question 1:</string>
+
+    <!-- Answers to Question 1, checkbox -->
+
+    <string name="Q1_answer1">A type of digital currency in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds.</string>
+    <string name="Q1_answer2">It is an open-source distributed ledger protocol that goes 'beyond blockchain' through its core invention of the blockless 'Tangle’.</string>
+    <string name="Q1_answer3">It iss a type of currency that operates independently of a central bank.</string>
+
+
+</resources>
