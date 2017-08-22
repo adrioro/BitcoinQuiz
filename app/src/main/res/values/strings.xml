@@ -2,12 +2,18 @@
     <string name="app_name">Bitcoin Quiz</string>
 
     <string name="details">Quiz Details:</string>
-    <string name="details_content_L1"> Question 1 = 4 points. </string>
-    <string name="details_content_L2"> Questions 2, 3, and 4 = 2 points each. </string>
+    <string name="details_content_L1"> Maximun grade = 10 points.</string>
+    <string name="details_content_L2"> Question 1 = 4 points. Questions 2, 3, and 4 = 2 points each.</string>
+    <string name="details_content_L3"> Answer all the questions before retrieving the grade.</string>
     <string name="question1">Question 1:</string>
     <string name="question1_text">What is Bitcoin? (Multiple right answers might apply)</string>
     <string name="question2">Question 2:</string>
     <string name="question2_text">What year was Bitcoin created?</string>
+    <string name="question3">Question 3:</string>
+    <string name="question3_text">Who created Bitcoin?</string>
+    <string name="question4">Question 4:</string>
+    <string name="question4_text">What is the name of the smallest fraction of a Bitcoin recorded on the block chain?</string>
+
 
 
     <!-- Answers to Question 1, checkbox -->
@@ -22,5 +28,10 @@
     <string name="Q2_radio2">2009</string>
     <string name="Q2_radio3">1962</string>
 
+    <!-- Answers to Question 3, radio buttons -->
+
+    <string name="Q3_radio1">Bill Gates</string>
+    <string name="Q3_radio2">Akihiko Sakamoto</string>
+    <string name="Q3_radio3">Nobody knows the creator’s real name.</string>
 
 </resources>

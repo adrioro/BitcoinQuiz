@@ -25,6 +25,10 @@
             android:id="@+id/textDetails2"
             android:text="@string/details_content_L2"
             style="@style/BodyTextStyle"/>
+        <TextView
+            android:id="@+id/textDetails3"
+            android:text="@string/details_content_L3"
+            style="@style/BodyTextStyle"/>
 
 
         <TextView
@@ -80,7 +84,52 @@
                 android:onClick="onRadioButtonClicked"/>
         </RadioGroup>
 
+        <TextView
+            android:id="@+id/textQuestion3"
+            android:text="@string/question3"
+            style="@style/HeaderTextStyle"/>
+        <TextView
+            android:id="@+id/textQuestion3_text"
+            android:text="@string/question3_text"
+            style="@style/BodyTextStyle"/>
 
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton android:id="@+id/Q3_radio1"
+                style="@style/CheckboxStyle"
+                android:text="@string/Q3_radio1"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton android:id="@+id/Q3_radio2"
+                style="@style/CheckboxStyle"
+                android:text="@string/Q3_radio2"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton android:id="@+id/Q3_radio3"
+                style="@style/CheckboxStyle"
+                android:text="@string/Q3_radio3"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textQuestion4"
+            android:text="@string/question4"
+            style="@style/HeaderTextStyle"/>
+        <TextView
+            android:id="@+id/textQuestion4_text"
+            android:text="@string/question4_text"
+            style="@style/BodyTextStyle"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter the answer here"
+            android:inputType="textCapCharacters"
+            android:lines="1"
+            android:maxLength="14"
+            android:maxLines="1"
+            />
 
     </LinearLayout>
 
