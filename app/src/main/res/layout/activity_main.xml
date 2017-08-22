@@ -131,6 +131,14 @@
             android:maxLines="1"
             />
 
+        <Button
+            android:id="@+id/grade_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="8dp"
+            android:onClick="grade"
+            android:text="@string/grade_button" />
+
     </LinearLayout>
 
 </ScrollView>

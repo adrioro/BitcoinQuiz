@@ -34,4 +34,8 @@
     <string name="Q3_radio2">Akihiko Sakamoto</string>
     <string name="Q3_radio3">Nobody knows the creator’s real name.</string>
 
+    <!-- Grade button -->
+
+    <string name="grade_button">GRADE</string>
+
 </resources>
