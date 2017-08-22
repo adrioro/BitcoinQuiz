@@ -16,44 +16,69 @@
         <TextView
             android:id="@+id/textView"
             android:text="@string/details"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            style="@style/HeaderTextStyle"/>
         <TextView
             android:id="@+id/textDetails1"
             android:text="@string/details_content_L1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            style="@style/BodyTextStyle"/>
         <TextView
             android:id="@+id/textDetails2"
             android:text="@string/details_content_L2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            style="@style/BodyTextStyle"/>
+
+
         <TextView
             android:id="@+id/textQuestion1"
             android:text="@string/question1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            style="@style/HeaderTextStyle"/>
+        <TextView
+            android:id="@+id/textQuestion1_text"
+            android:text="@string/question1_text"
+            style="@style/BodyTextStyle"/>
+
+
         <CheckBox
             android:id="@+id/digital_Q1_checkbox1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
             android:text="@string/Q1_answer1"
-            android:textSize="16sp" />
+            style="@style/CheckboxStyle" />
         <CheckBox
             android:id="@+id/digital_Q1_checkbox2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
             android:text="@string/Q1_answer2"
-            android:textSize="16sp" />
+            style="@style/CheckboxStyle" />
         <CheckBox
             android:id="@+id/digital_Q1_checkbox3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
             android:text="@string/Q1_answer3"
+            style="@style/CheckboxStyle"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textQuestion2"
+            android:text="@string/question2"
+            style="@style/HeaderTextStyle"/>
+        <TextView
+            android:id="@+id/textQuestion2_text"
+            android:text="@string/question2_text"
+            style="@style/BodyTextStyle"/>
+
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton android:id="@+id/Q2_radio1"
+                style="@style/CheckboxStyle"
+                android:text="@string/Q2_radio1"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton android:id="@+id/Q2_radio2"
+                style="@style/CheckboxStyle"
+                android:text="@string/Q2_radio2"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton android:id="@+id/Q2_radio3"
+                style="@style/CheckboxStyle"
+                android:text="@string/Q2_radio3"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
 
 
 
