@@ -42,15 +42,15 @@
 
 
         <CheckBox
-            android:id="@+id/digital_Q1_checkbox1"
+            android:id="@+id/Q1_checkbox1"
             android:text="@string/Q1_answer1"
             style="@style/CheckboxStyle" />
         <CheckBox
-            android:id="@+id/digital_Q1_checkbox2"
+            android:id="@+id/Q1_checkbox2"
             android:text="@string/Q1_answer2"
             style="@style/CheckboxStyle" />
         <CheckBox
-            android:id="@+id/digital_Q1_checkbox3"
+            android:id="@+id/Q1_checkbox3"
             android:text="@string/Q1_answer3"
             style="@style/CheckboxStyle"
             android:textSize="16sp" />
@@ -122,6 +122,7 @@
             style="@style/BodyTextStyle"/>
 
         <EditText
+            android:id="@+id/answer_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter the answer here"
@@ -136,7 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginLeft="8dp"
-            android:onClick="grade"
+            android:onClick="gradeQuiz"
             android:text="@string/grade_button" />
 
     </LinearLayout>
