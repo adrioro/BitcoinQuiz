@@ -141,7 +141,19 @@
             android:text="@string/grade_button" />
 
         <TextView
-            android:id="@+id/grade_summary"
+            android:id="@+id/grade1_summary"
+            android:text=""
+            style="@style/BodyTextStyle"/>
+        <TextView
+            android:id="@+id/grade2_summary"
+            android:text=""
+            style="@style/BodyTextStyle"/>
+        <TextView
+            android:id="@+id/grade3_summary"
+            android:text=""
+            style="@style/BodyTextStyle"/>
+        <TextView
+            android:id="@+id/grade4_summary"
             android:text=""
             style="@style/BodyTextStyle"/>
 

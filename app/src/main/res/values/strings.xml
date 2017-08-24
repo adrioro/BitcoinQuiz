@@ -6,7 +6,7 @@
     <string name="details_content_L2"> Question 1 = 4 points. Questions 2, 3, and 4 = 2 points each.</string>
     <string name="details_content_L3"> Answer all the questions before retrieving the grade.</string>
     <string name="question1">Question 1:</string>
-    <string name="question1_text">What is Bitcoin? (Multiple right answers might apply)</string>
+    <string name="question1_text">What is Bitcoin? (Multiple - but not all - answers might apply)</string>
     <string name="question2">Question 2:</string>
     <string name="question2_text">What year was Bitcoin created?</string>
     <string name="question3">Question 3:</string>
