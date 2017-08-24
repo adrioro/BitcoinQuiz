@@ -54,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
         private String createQuizSummary(int grade, boolean Q1_CheckBox1Checked,boolean Q1_CheckBox3Checked){
 
-        String gradeMessage = "\n Your grade: " + calculateGrade_Q1(Q1_CheckBox1Checked,Q1_CheckBox3Checked);
+            String gradeMessage = "\n Your grade: " + calculateGrade_Q1(Q1_CheckBox1Checked,Q1_CheckBox3Checked);
+            return gradeMessage;
     }
 
 
