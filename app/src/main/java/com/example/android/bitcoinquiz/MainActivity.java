@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked; /** Private,to use it on onClick_gradeQuiz */
 
 
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             *                            return final grade
          */
 
-    public int calculateGrade_Q2(boolean Q2_RadioButton1Checked, boolean Q2_RadioButton2Checked, boolean Q3_RadioButton3Checked) {
+    public int calculateGrade_Q2(boolean Q2_RadioButton1Checked, boolean Q2_RadioButton2Checked, boolean Q2_RadioButton3Checked) {
 
         int finalGrade = 0;
         int RadioButton1 = 0;
@@ -91,8 +92,39 @@ public class MainActivity extends AppCompatActivity {
         if (Q2_RadioButton1Checked){
             RadioButton2 = 0;
         }
-        if (Q3_RadioButton3Checked){
+        if (Q2_RadioButton3Checked){
             RadioButton2 = 0;
+        }
+
+        finalGrade = RadioButton1 + RadioButton2 + RadioButton3;
+        return finalGrade;
+    }
+
+             /*
+         Method calculateGrade_Q3 calculates question 3's total grade (Q3 has 3 RadioButtons).
+            *
+            * @param Q1_CheckBox1Checked is wether CheckBox1 is checked.
+            * @param Q1_CheckBox3Checked is wether CheckBox1 is checked.
+            *                            return final grade
+         */
+
+    public int caclulateGrade_Q3(boolean Q3_RadioButton1Checked, boolean Q3_RadioButton2Checked, boolean Q3_RadioButton3Checked) {
+
+        int finalGrade = 0;
+        int RadioButton1 = 0;
+        int RadioButton2 = 0;
+        int RadioButton3 = 0;
+
+
+        if (Q3_RadioButton3Checked) {
+            RadioButton3 = 2;
+        }
+
+        if (Q3_RadioButton1Checked){
+            RadioButton3 = 0;
+        }
+        if (Q3_RadioButton2Checked){
+            RadioButton3 = 0;
         }
 
         finalGrade = RadioButton1 + RadioButton2 + RadioButton3;
@@ -114,6 +146,12 @@ public class MainActivity extends AppCompatActivity {
         return gradeMessage_Q2;
     }
 
+    private String createQuiz_Q3_Summary(int grade, boolean Q3_RadioButton1checked, boolean Q3_RadioButton2checked, boolean Q3_RadioButton3checked) {
+
+        String gradeMessage_Q3 = "\n Question 3 grade: " + caclulateGrade_Q3(Q3_RadioButton1checked, Q3_RadioButton2checked, Q3_RadioButton3checked) + "/2";
+        return gradeMessage_Q3;
+    }
+
 
     /**
      * These methods display the given text on the screen.
@@ -124,6 +162,10 @@ public class MainActivity extends AppCompatActivity {
     }
     private void displayMessage_Q2(String message) {
         TextView quizSummaryTextView = (TextView) findViewById(R.id.grade2_summary);
+        quizSummaryTextView.setText(message);
+    }
+    private void displayMessage_Q3(String message) {
+        TextView quizSummaryTextView = (TextView) findViewById(R.id.grade3_summary);
         quizSummaryTextView.setText(message);
     }
 
@@ -154,10 +196,9 @@ public class MainActivity extends AppCompatActivity {
         String gradeMessage_Q1 = createQuiz_Q1_Summary(grade1, Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked);
         displayMessage_Q1(gradeMessage_Q1);
 
-
-    /**
-     * QUESTION 2, 3 Radio Buttons.
-     */
+        /**
+         * QUESTION 2, 3 Radio Buttons.
+         */
 
         /**
          * * Question 2's first RadioButton.
@@ -179,6 +220,28 @@ public class MainActivity extends AppCompatActivity {
         String gradeMessage_Q2 = createQuiz_Q2_Summary(grade2,Q2_RadioButton1checked, Q2_RadioButton2checked, Q2_RadioButton3checked );
         displayMessage_Q2 (gradeMessage_Q2);
 
+        /**
+         * QUESTION 3, 3 Radio Buttons.
+         */
+        /**
+         * * Question 3's first RadioButton.
+         */
+        RadioButton question3_RadioButton1 = (RadioButton) findViewById(R.id.Q3_radio1);
+        boolean Q3_RadioButton1checked = question3_RadioButton1.isChecked();
+        /**
+         * * Question 3's second RadioButton.
+         */
+        RadioButton question3_RadioButton2 = (RadioButton) findViewById(R.id.Q3_radio2);
+        boolean Q3_RadioButton2checked = question3_RadioButton2.isChecked();
+        /**
+         * * Question 2's third RadioButton.
+         */
+        RadioButton question3_RadioButton3 = (RadioButton) findViewById(R.id.Q3_radio3);
+        boolean Q3_RadioButton3checked = question3_RadioButton3.isChecked();
+
+        int grade3 = caclulateGrade_Q3(Q3_RadioButton1checked, Q3_RadioButton2checked,Q3_RadioButton3checked);
+        String gradeMessage_Q3 = createQuiz_Q3_Summary(grade3,Q3_RadioButton1checked, Q3_RadioButton2checked, Q3_RadioButton3checked);
+        displayMessage_Q3 (gradeMessage_Q3);
     }
 
 
