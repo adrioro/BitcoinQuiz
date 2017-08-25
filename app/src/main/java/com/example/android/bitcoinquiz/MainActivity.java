@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText answerField;
     int grade = 0;
     private boolean Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked; /** Private,to use it on onClick_gradeQuiz */
-    private boolean Q2_RadioButton1checked, Q2_RadioButton2checked, Q2_RadioButton3checked;
+
 
     @Override
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (Q2_RadioButton2Checked) {
-            RadioButton2 = 0;
+            RadioButton2 = 2;
         }
 
         finalGrade = RadioButton1 + RadioButton2 + RadioButton3;
@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
         int grade1 = calculateGrade_Q1(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked);
         String gradeMessage_Q1 = createQuiz_Q1_Summary(grade1, Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked);
         displayMessage_Q1(gradeMessage_Q1);
+
 
     /**
      * QUESTION 1, 3 RADIO BUTTONS.

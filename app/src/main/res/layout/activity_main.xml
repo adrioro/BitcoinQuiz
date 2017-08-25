@@ -67,21 +67,21 @@
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:orientation="vertical">
 
             <RadioButton android:id="@+id/Q2_radio1"
                 style="@style/CheckboxStyle"
-                android:text="@string/Q2_radio1"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="@string/Q2_radio1"/>
+
             <RadioButton android:id="@+id/Q2_radio2"
                 style="@style/CheckboxStyle"
-                android:text="@string/Q2_radio2"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="@string/Q2_radio2"/>
+
             <RadioButton android:id="@+id/Q2_radio3"
                 style="@style/CheckboxStyle"
-                android:text="@string/Q2_radio3"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="@string/Q2_radio3"/>
+
         </RadioGroup>
 
         <TextView
