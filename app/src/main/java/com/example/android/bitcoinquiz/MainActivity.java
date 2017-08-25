@@ -88,6 +88,13 @@ public class MainActivity extends AppCompatActivity {
             RadioButton2 = 2;
         }
 
+        if (Q2_RadioButton1Checked){
+            RadioButton2 = 0;
+        }
+        if (Q3_RadioButton3Checked){
+            RadioButton2 = 0;
+        }
+
         finalGrade = RadioButton1 + RadioButton2 + RadioButton3;
         return finalGrade;
     }
@@ -126,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onClick_gradeQuiz(View view) {
         /**
-         * * Question 1's first checkbox.
+         * * QUESTION 1, 3 checkBoxes.
          */
         CheckBox question1_CheckBox1 = (CheckBox) findViewById(R.id.Q1_checkbox1);
         boolean Q1_CheckBox1Checked = question1_CheckBox1.isChecked();
@@ -149,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * QUESTION 1, 3 RADIO BUTTONS.
+     * QUESTION 2, 3 Radio Buttons.
      */
 
         /**
