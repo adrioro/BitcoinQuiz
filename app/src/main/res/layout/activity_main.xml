@@ -100,16 +100,15 @@
 
             <RadioButton android:id="@+id/Q3_radio1"
                 style="@style/CheckboxStyle"
-                android:text="@string/Q3_radio1"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="@string/Q3_radio1"/>
+
             <RadioButton android:id="@+id/Q3_radio2"
                 style="@style/CheckboxStyle"
-                android:text="@string/Q3_radio2"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="@string/Q3_radio2"/>
+
             <RadioButton android:id="@+id/Q3_radio3"
                 style="@style/CheckboxStyle"
-                android:text="@string/Q3_radio3"
-                android:onClick="onRadioButtonClicked"/>
+                android:text="@string/Q3_radio3"/>
         </RadioGroup>
 
         <TextView
@@ -126,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter the answer here"
-            android:inputType="textCapCharacters"
+            android:inputType="text"
             android:lines="1"
             android:maxLength="14"
             android:maxLines="1"

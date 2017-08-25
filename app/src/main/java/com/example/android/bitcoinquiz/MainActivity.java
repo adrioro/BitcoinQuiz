@@ -132,7 +132,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Method calculateGrade_04 calculates question 4's total grade (1 input).
+     */
+    public int calculateGrade_Q4(String Q4_EditText){
+        int finalGrade = 0;
+        String response = Q4_EditText;
+
+        if (response.equals("satoshi")) {
+            finalGrade = 2;
+        }
+        if (response.equals("SATOSHI")) {
+            finalGrade = 2;
+        }
+        if (response.equals("Satoshi")) {
+            finalGrade = 2;
+        }
+        if (response.equals("satoyi")) { /** For Argentineans :-)*/
+            finalGrade = 2;
+        }
+         return finalGrade;
+    }
+
+    /**
      * Quiz SUMMARY text.
+     */
+
+    /**
+     * Question 1 SUMMARY text.
      */
 
     private String createQuiz_Q1_Summary(int grade, boolean Q1_CheckBox1Checked,boolean Q1_CheckBox2Checked, boolean Q1_CheckBox3Checked) {
@@ -140,17 +166,33 @@ public class MainActivity extends AppCompatActivity {
         String gradeMessage_Q1 = "\n Question 1 grade: " + calculateGrade_Q1(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked) + "/4";
         return gradeMessage_Q1;
     }
+    /**
+     * Question 2 SUMMARY text.
+     */
     private String createQuiz_Q2_Summary(int grade, boolean Q2_RadioButton1checked, boolean Q2_RadioButton2checked, boolean Q2_RadioButton3checked) {
 
         String gradeMessage_Q2 = "\n Question 2 grade: " + calculateGrade_Q2(Q2_RadioButton1checked, Q2_RadioButton2checked, Q2_RadioButton3checked) + "/2";
         return gradeMessage_Q2;
     }
-
+    /**
+     * Question 3 SUMMARY text.
+     */
     private String createQuiz_Q3_Summary(int grade, boolean Q3_RadioButton1checked, boolean Q3_RadioButton2checked, boolean Q3_RadioButton3checked) {
 
         String gradeMessage_Q3 = "\n Question 3 grade: " + caclulateGrade_Q3(Q3_RadioButton1checked, Q3_RadioButton2checked, Q3_RadioButton3checked) + "/2";
         return gradeMessage_Q3;
     }
+    /**
+     * Question 4 SUMMARY text.
+     */
+    private String createQuiz_Q4_Summary(int grade, String Q4_EditText) {
+
+        String gradeMessage_Q4 = "\n Question 4 grade: " + calculateGrade_Q4(Q4_EditText) + "/2";
+        return gradeMessage_Q4;
+    }
+
+
+
 
 
     /**
@@ -168,6 +210,14 @@ public class MainActivity extends AppCompatActivity {
         TextView quizSummaryTextView = (TextView) findViewById(R.id.grade3_summary);
         quizSummaryTextView.setText(message);
     }
+
+    private void displayMessage_Q4(String message) {
+        TextView quizSummaryTextView = (TextView) findViewById(R.id.grade4_summary);
+        quizSummaryTextView.setText(message);
+    }
+
+
+
 
 
     /**
@@ -242,6 +292,18 @@ public class MainActivity extends AppCompatActivity {
         int grade3 = caclulateGrade_Q3(Q3_RadioButton1checked, Q3_RadioButton2checked,Q3_RadioButton3checked);
         String gradeMessage_Q3 = createQuiz_Q3_Summary(grade3,Q3_RadioButton1checked, Q3_RadioButton2checked, Q3_RadioButton3checked);
         displayMessage_Q3 (gradeMessage_Q3);
+
+        /**
+         * QUESTION 4, 1 text entry.
+         */
+        EditText question4_EditText = (EditText) findViewById(R.id.answer_input);
+        String Q4_EditText = question4_EditText.getText().toString();
+
+        int grade4 = calculateGrade_Q4(Q4_EditText);
+        String gradeMessage_Q4 = createQuiz_Q4_Summary(grade4,Q4_EditText);
+        displayMessage_Q4 (gradeMessage_Q4);
+
+
     }
 
 
