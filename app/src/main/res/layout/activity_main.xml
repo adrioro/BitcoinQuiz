@@ -155,6 +155,10 @@
             android:id="@+id/grade4_summary"
             android:text=""
             style="@style/BodyTextStyle"/>
+        <TextView
+            android:id="@+id/totalGrade_summary"
+            android:text=""
+            style="@style/BodyTextStyle"/>
 
     </LinearLayout>
 
