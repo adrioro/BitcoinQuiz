@@ -206,6 +206,15 @@ public class MainActivity extends AppCompatActivity {
         String gradeMessage_Q4 = "\n Question 4 grade: " + calculateGrade_Q4(Q4_EditText) + "/2";
         return gradeMessage_Q4;
     }
+    /**
+     * Total Grade SUMMARY text.
+     */
+    private String createQuiz_total_Summary(int grade) {
+
+        String gradeMessage_total = "\n Total grade: " + calculateGrade_Total() + "/10";
+        return gradeMessage_total;
+    }
+
 
 
 
@@ -229,6 +238,10 @@ public class MainActivity extends AppCompatActivity {
     }
     private void displayMessage_Q4(String message) {
         TextView quizSummaryTextView = (TextView) findViewById(R.id.grade4_summary);
+        quizSummaryTextView.setText(message);
+    }
+    private void displayMessage_total(String message) {
+        TextView quizSummaryTextView = (TextView) findViewById(R.id.totalGrade_summary);
         quizSummaryTextView.setText(message);
     }
 
@@ -314,13 +327,19 @@ public class MainActivity extends AppCompatActivity {
          * QUESTION 4, 1 text entry.
          */
         EditText question4_EditText = (EditText) findViewById(R.id.answer_input);
-        String Q4_EditText = question4_EditText.getText().toString();
+        Q4_EditText = question4_EditText.getText().toString();
 
         int grade4 = calculateGrade_Q4(Q4_EditText);
         String gradeMessage_Q4 = createQuiz_Q4_Summary(grade4,Q4_EditText);
         displayMessage_Q4 (gradeMessage_Q4);
 
+        /**
+         * Total grade.
+         */
 
+        int gradeTotal = calculateGrade_Total();
+        String gradeMessage_Total = createQuiz_total_Summary(gradeTotal);
+        displayMessage_total(gradeMessage_Total);
 
     }
 
