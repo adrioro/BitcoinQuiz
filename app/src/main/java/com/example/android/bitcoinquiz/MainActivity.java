@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -155,19 +154,24 @@ public class MainActivity extends AppCompatActivity {
         }
          return finalGrade;
     }
+
+    /**
+     * Method calculateGrades() to be used on next method.
+     */
+
+    public int calculateGrades(int a, int b, int c, int d){
+        return a + b + c + d;
+
+    }
     /**
      * Method calculateGrade_Total() calculates the sum of all question's grades.
      */
+
     public int calculateGrade_Total(){
-        int grade4 = calculateGrade_Q4(Q4_EditText);
-        int grade3 = calculateGrade_Q3(Q3_RadioButton1Checked,Q3_RadioButton2Checked, Q3_RadioButton3Checked);
-        int grade2 = calculateGrade_Q2(Q2_RadioButton1Checked, Q2_RadioButton2Checked, Q2_RadioButton3Checked);
-        int grade1 = calculateGrade_Q1(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked);
-
-        int finalGrade = grade1+grade2+grade3+grade4;
-        return finalGrade;
-
+        int totalGrade = calculateGrades(Q4_EditText,Q3_RadioButton1Checked,Q3_RadioButton2Checked, Q3_RadioButton3Checked);
+        return totalGrade;
     }
+
 
     /**
      * Quiz SUMMARY text.
