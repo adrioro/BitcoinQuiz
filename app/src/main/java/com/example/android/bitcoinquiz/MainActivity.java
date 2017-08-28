@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean Q2_RadioButton1Checked, Q2_RadioButton2Checked, Q2_RadioButton3Checked;
     private boolean Q3_RadioButton1Checked,Q3_RadioButton2Checked, Q3_RadioButton3Checked;
     private String Q4_EditText;
+    int grade4, grade3, grade2, grade1;
 
 
 
@@ -158,10 +159,11 @@ public class MainActivity extends AppCompatActivity {
      * Method calculateGrade_Total() calculates the sum of all question's grades.
      */
     public int calculateGrade_Total(){
-        int grade4 = calculateGrade_Q4(Q4_EditText);
-        int grade3 = calculateGrade_Q3(Q3_RadioButton1Checked,Q3_RadioButton2Checked, Q3_RadioButton3Checked);
-        int grade2 = calculateGrade_Q2(Q2_RadioButton1Checked, Q2_RadioButton2Checked, Q2_RadioButton3Checked);
-        int grade1 = calculateGrade_Q1(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked);
+
+        grade4 = calculateGrade_Q4(Q4_EditText);
+        grade3 = calculateGrade_Q3(Q3_RadioButton1Checked,Q3_RadioButton2Checked, Q3_RadioButton3Checked);
+        grade2 = calculateGrade_Q2(Q2_RadioButton1Checked, Q2_RadioButton2Checked, Q2_RadioButton3Checked);
+        grade1 = calculateGrade_Q1(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked);
 
         int totalGrade = grade1+grade2+grade3+grade4;
         return totalGrade;
