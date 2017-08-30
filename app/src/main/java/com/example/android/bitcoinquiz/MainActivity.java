@@ -11,20 +11,18 @@ import android.widget.TextView;
 
 /**
  * This app offers 4 questions and delivers a greade.
+ * The following public class will be accessible to other classes defined in the same package.
  */
 
 public class MainActivity extends AppCompatActivity {
     EditText answerField;
-    int grade = 0;
-    private boolean Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked; /** Private,to use it on onClick_gradeQuiz */
-    private boolean Q2_CheckBox1Checked, Q2_CheckBox2Checked, Q2_CheckBox3Checked;
-    private boolean Q3_CheckBox1Checked, Q3_CheckBox2Checked, Q3_CheckBox3Checked;
-    private String Q4_EditText;
+
     int grade4;
     int grade3;
     int grade2;
     int grade1;
-
+    private String Q4_EditText;  /** Access of a private variable is restricted to the class itself.
+     It can be modified only withn the class, even if it's private. But never outside the class.**/
 
 
     @Override
@@ -32,18 +30,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         /*
-         * This the input field method
+         * This is the input field.
          */
         answerField = (EditText) findViewById(R.id.answer_input);
     }
 
     /**
-     * QUESTION 1, 3 CHECKBOXES.
+     * QUESTION 1 has 3 Checkboxes. Correct answers are first checkbox, and last checkbox.
      */
-
-
     /**
-     * Method calculateGrade_Q1 calculates question 1's total grade (Q1 has 3 CheckBoxes).
+     * This method calculates question 1's grade.
+     *
+     * This constructor is private, so it's objects can be created from any other class.
      */
 
     public int calculateGrade_Q1(boolean Q1_CheckBox1Checked, boolean Q1_CheckBox2Checked, boolean Q1_CheckBox3Checked) {
@@ -71,9 +69,13 @@ public class MainActivity extends AppCompatActivity {
         return finalGrade;
     }
 
-         /*
-         Method calculateGrade_Q2 calculates question 2's total grade (Q2 has 3 RadioButtons).
-         */
+    /**
+     * QUESTION 2 has 3 RadioButtons. The correct answer is the middle RadioButton.
+     */
+    /**
+     /*
+     This method calculates question 2's grade.
+     */
 
     public int calculateGrade_Q2(boolean Q2_RadioButton1Checked, boolean Q2_RadioButton2Checked, boolean Q2_RadioButton3Checked) {
 
@@ -87,21 +89,24 @@ public class MainActivity extends AppCompatActivity {
             RadioButton2 = 2;
         }
 
-        if (Q2_RadioButton1Checked){
+        if (Q2_RadioButton1Checked) {
             RadioButton2 = 0;
         }
-        if (Q2_RadioButton3Checked){
+        if (Q2_RadioButton3Checked) {
             RadioButton2 = 0;
         }
 
         finalGrade = RadioButton1 + RadioButton2 + RadioButton3;
         return finalGrade;
     }
-
-             /*
-         Method calculateGrade_Q3 calculates question 3's total grade (Q3 has 3 RadioButtons).
-            *
-         */
+    /**
+     * QUESTION 3 has 3 RadioButtons. The correct answer is the last RadioButton.
+     */
+    /**
+    /*
+    This calculates question 3's grade.
+    *
+    */
 
     public int calculateGrade_Q3(boolean Q3_RadioButton1Checked, boolean Q3_RadioButton2Checked, boolean Q3_RadioButton3Checked) {
 
@@ -115,21 +120,23 @@ public class MainActivity extends AppCompatActivity {
             RadioButton3 = 2;
         }
 
-        if (Q3_RadioButton1Checked){
+        if (Q3_RadioButton1Checked) {
             RadioButton3 = 0;
         }
-        if (Q3_RadioButton2Checked){
+        if (Q3_RadioButton2Checked) {
             RadioButton3 = 0;
         }
 
         finalGrade = RadioButton1 + RadioButton2 + RadioButton3;
         return finalGrade;
     }
-
+    /**
+     * QUESTION is a text entry. The correct answer is satoshi.
+     */
     /**
      * Method calculateGrade_04 calculates question 4's total grade (1 input).
      */
-    public int calculateGrade_Q4(String Q4_EditText){
+    public int calculateGrade_Q4(String Q4_EditText) {
         int finalGrade = 0;
         String response = Q4_EditText;
 
@@ -142,135 +149,134 @@ public class MainActivity extends AppCompatActivity {
         if (response.equals("Satoshi")) {
             finalGrade = 2;
         }
-        if (response.equals("satoyi")) { /** For Argentineans :-)*/
+        if (response.equals("satoyi")) { /** The way Argentineans would write it. */
             finalGrade = 2;
         }
-         return finalGrade;
+        return finalGrade;
     }
+
     /**
-     * Method calculateGrade_Total() calculates the sum of all question's grades.
+     * This method calculates the sum of all question's grades.
      */
-    public int calculateGrade_Total(){
+    public int calculateGrade_Total() {
 
         grade4 = calculateGrade_Q4(Q4_EditText);
 
-
-        int totalGrade = grade1+grade2+grade3+grade4;
+        int totalGrade = grade1 + grade2 + grade3 + grade4;
         return totalGrade;
 
     }
 
     /**
-     * Quiz SUMMARY text.
+     * Quiz SUMMARY texts creation.
      */
 
     /**
-     * Question 1 SUMMARY text.
+     * Question 1 SUMMARY text. It displays the grade received.
      */
 
-    private String createQuiz_Q1_Summary(int grade, boolean Q1_CheckBox1Checked,boolean Q1_CheckBox2Checked, boolean Q1_CheckBox3Checked) {
+    private String createQuiz_Q1_Summary( boolean Q1_CheckBox1Checked, boolean Q1_CheckBox2Checked, boolean Q1_CheckBox3Checked) {
 
-        grade1 = calculateGrade_Q1(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked);
+        grade1 = calculateGrade_Q1(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked); /** To be used for the total, final grade.**/
 
         String gradeMessage_Q1 = "\n Question 1 grade: " + calculateGrade_Q1(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked) + "/4";
-        return gradeMessage_Q1;
+        return gradeMessage_Q1; /** Returns the string + int info.**/
     }
-    /**
-     * Question 2 SUMMARY text.
-     */
-    private String createQuiz_Q2_Summary(int grade, boolean Q2_CheckBox1Checked, boolean Q2_CheckBox2Checked, boolean Q2_CheckBox3Checked) {
 
-        grade2 = calculateGrade_Q2(Q2_CheckBox1Checked, Q2_CheckBox2Checked, Q2_CheckBox3Checked);
+    /**
+     * Question 2 SUMMARY text. It displays the grade received.
+     */
+    private String createQuiz_Q2_Summary(boolean Q2_CheckBox1Checked, boolean Q2_CheckBox2Checked, boolean Q2_CheckBox3Checked) {
+
+        grade2 = calculateGrade_Q2(Q2_CheckBox1Checked, Q2_CheckBox2Checked, Q2_CheckBox3Checked); /** To be used for the total, final grade.**/
 
         String gradeMessage_Q2 = "\n Question 2 grade: " + calculateGrade_Q2(Q2_CheckBox1Checked, Q2_CheckBox2Checked, Q2_CheckBox3Checked) + "/2";
-        return gradeMessage_Q2;
+        return gradeMessage_Q2; /** Returns the string + int info.**/
     }
-    /**
-     * Question 3 SUMMARY text.
-     */
-    private String createQuiz_Q3_Summary(int grade, boolean Q3_CheckBox1Checked, boolean Q3_CheckBox2Checked, boolean Q3_CheckBox3Checked) {
 
-        grade3 = calculateGrade_Q3(Q3_CheckBox1Checked, Q3_CheckBox2Checked, Q3_CheckBox3Checked);
+    /**
+     * Question 3 SUMMARY text. It displays the grade received.
+     */
+    private String createQuiz_Q3_Summary(boolean Q3_CheckBox1Checked, boolean Q3_CheckBox2Checked, boolean Q3_CheckBox3Checked) {
+
+        grade3 = calculateGrade_Q3(Q3_CheckBox1Checked, Q3_CheckBox2Checked, Q3_CheckBox3Checked); /** To be used for the total, final grade.**/
 
         String gradeMessage_Q3 = "\n Question 3 grade: " + calculateGrade_Q3(Q3_CheckBox1Checked, Q3_CheckBox2Checked, Q3_CheckBox3Checked) + "/2";
-        return gradeMessage_Q3;
+        return gradeMessage_Q3; /** Returns the string + int info.**/
     }
+
     /**
-     * Question 4 SUMMARY text.
+     * Question 4 SUMMARY text. It displays the grade received.
      */
-    private String createQuiz_Q4_Summary(int grade, String Q4_EditText) {
+    private String createQuiz_Q4_Summary(String Q4_EditText) {
 
         String gradeMessage_Q4 = "\n Question 4 grade: " + calculateGrade_Q4(Q4_EditText) + "/2";
-        return gradeMessage_Q4;
+        return gradeMessage_Q4; /** Returns the string + int info.**/
     }
+
     /**
-     * Total Grade SUMMARY text.
+     * Total Grade SUMMARY text. It displays the grade received.
      */
     private String createQuiz_total_Summary(int grade) {
 
         String gradeMessage_total = "\n Total grade: " + calculateGrade_Total() + "/10";
-        return gradeMessage_total;
+        return gradeMessage_total; /** Returns the string + int total info.**/
     }
-
-
-
-
-
 
 
     /**
-     * These methods display the given text on the screen.
+     * These methods displays the given text on the screen.
      */
     private void displayMessage_Q1(String message) {
-        TextView quizSummaryTextView = (TextView) findViewById(R.id.grade1_summary);
-        quizSummaryTextView.setText(message);
+        TextView quizSummaryTextView = (TextView) findViewById(R.id.grade1_summary); /** Finds the view on the .xml where the text will be displayed**/
+        quizSummaryTextView.setText(message); /** Sets the text to be displayed **/
     }
+
     private void displayMessage_Q2(String message) {
-        TextView quizSummaryTextView = (TextView) findViewById(R.id.grade2_summary);
-        quizSummaryTextView.setText(message);
+        TextView quizSummaryTextView = (TextView) findViewById(R.id.grade2_summary); /** Finds the view on the .xml where the text will be displayed**/
+        quizSummaryTextView.setText(message); /** Sets the text to be displayed **/
     }
+
     private void displayMessage_Q3(String message) {
-        TextView quizSummaryTextView = (TextView) findViewById(R.id.grade3_summary);
-        quizSummaryTextView.setText(message);
+        TextView quizSummaryTextView = (TextView) findViewById(R.id.grade3_summary); /** Finds the view on the .xml where the text will be displayed**/
+        quizSummaryTextView.setText(message); /** Sets the text to be displayed **/
     }
+
     private void displayMessage_Q4(String message) {
-        TextView quizSummaryTextView = (TextView) findViewById(R.id.grade4_summary);
-        quizSummaryTextView.setText(message);
+        TextView quizSummaryTextView = (TextView) findViewById(R.id.grade4_summary); /** Finds the view on the .xml where the text will be displayed**/
+        quizSummaryTextView.setText(message); /** Sets the text to be displayed **/
     }
+
     private void displayMessage_total(String message) {
-        TextView quizSummaryTextView = (TextView) findViewById(R.id.totalGrade_summary);
-        quizSummaryTextView.setText(message);
+        TextView quizSummaryTextView = (TextView) findViewById(R.id.totalGrade_summary); /** Finds the view on the .xml where the text will be displayed**/
+        quizSummaryTextView.setText(message); /** Sets the text to be displayed **/
     }
-
-
-
-
-
 
     /**
      * This method is called when the order button is clicked.
      */
+
     public void onClick_gradeQuiz(View view) {
         /**
          * * QUESTION 1, 3 checkBoxes.
          */
-        CheckBox question1_CheckBox1 = (CheckBox) findViewById(R.id.Q1_checkbox1);
-        boolean Q1_CheckBox1Checked = question1_CheckBox1.isChecked();
+        CheckBox question1_CheckBox1 = (CheckBox) findViewById(R.id.Q1_checkbox1); /** Finds the checkbox on the .xml**/
+        boolean Q1_CheckBox1Checked = question1_CheckBox1.isChecked(); /** Checks the status**/
 
-        Log.v("MainActivity", "Answer to CheckBox 1:" + Q1_CheckBox1Checked);
+        Log.v("MainActivity", "Answer to CheckBox 1:" + Q1_CheckBox1Checked); /** Just for me.**/
         /**
          * * Question 1's second checkbox.
          */
-        CheckBox question1_CheckBox2 = (CheckBox) findViewById(R.id.Q1_checkbox2);
-        boolean Q1_CheckBox2Checked = question1_CheckBox2.isChecked();
+        CheckBox question1_CheckBox2 = (CheckBox) findViewById(R.id.Q1_checkbox2); /** Finds the checkbox on the .xml**/
+        boolean Q1_CheckBox2Checked = question1_CheckBox2.isChecked();/** Checks the status**/
         /**
          * Question 1's second checkbox.
          */
-        CheckBox question1_CheckBox3 = (CheckBox) findViewById(R.id.Q1_checkbox3);
-        boolean Q1_CheckBox3Checked = question1_CheckBox3.isChecked();
+        CheckBox question1_CheckBox3 = (CheckBox) findViewById(R.id.Q1_checkbox3); /** Finds the checkbox on the .xml**/
+        boolean Q1_CheckBox3Checked = question1_CheckBox3.isChecked();/** Checks the status**/
 
-        int grade1 = calculateGrade_Q1(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked);
-        String gradeMessage_Q1 = createQuiz_Q1_Summary(grade1, Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked);
+
+        String gradeMessage_Q1 = createQuiz_Q1_Summary(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked);
         displayMessage_Q1(gradeMessage_Q1);
 
         /**
@@ -293,13 +299,14 @@ public class MainActivity extends AppCompatActivity {
         RadioButton question2_RadioButton3 = (RadioButton) findViewById(R.id.Q2_radio3);
         boolean Q2_RadioButton3checked = question2_RadioButton3.isChecked();
 
-        int grade2 = calculateGrade_Q2(Q2_RadioButton1checked, Q2_RadioButton2checked, Q2_RadioButton3checked);
-        String gradeMessage_Q2 = createQuiz_Q2_Summary(grade2,Q2_RadioButton1checked, Q2_RadioButton2checked, Q2_RadioButton3checked );
-        displayMessage_Q2 (gradeMessage_Q2);
+
+        String gradeMessage_Q2 = createQuiz_Q2_Summary(Q2_RadioButton1checked, Q2_RadioButton2checked, Q2_RadioButton3checked);
+        displayMessage_Q2(gradeMessage_Q2);
 
         /**
          * QUESTION 3, 3 Radio Buttons.
          */
+
         /**
          * * Question 3's first RadioButton.
          */
@@ -316,19 +323,19 @@ public class MainActivity extends AppCompatActivity {
         RadioButton question3_RadioButton3 = (RadioButton) findViewById(R.id.Q3_radio3);
         boolean Q3_RadioButton3checked = question3_RadioButton3.isChecked();
 
-        int grade3 = calculateGrade_Q3(Q3_RadioButton1checked, Q3_RadioButton2checked,Q3_RadioButton3checked);
-        String gradeMessage_Q3 = createQuiz_Q3_Summary(grade3,Q3_RadioButton1checked, Q3_RadioButton2checked, Q3_RadioButton3checked);
-        displayMessage_Q3 (gradeMessage_Q3);
+
+        String gradeMessage_Q3 = createQuiz_Q3_Summary(Q3_RadioButton1checked, Q3_RadioButton2checked, Q3_RadioButton3checked);
+        displayMessage_Q3(gradeMessage_Q3);
 
         /**
          * QUESTION 4, 1 text entry.
          */
-        EditText question4_EditText = (EditText) findViewById(R.id.answer_input);
+        EditText question4_EditText = (EditText) findViewById(R.id.answer_input);  /** Finds the view on the .xml where the text will be displayed**/
         Q4_EditText = question4_EditText.getText().toString();
 
         int grade4 = calculateGrade_Q4(Q4_EditText);
-        String gradeMessage_Q4 = createQuiz_Q4_Summary(grade4,Q4_EditText);
-        displayMessage_Q4 (gradeMessage_Q4);
+        String gradeMessage_Q4 = createQuiz_Q4_Summary(Q4_EditText);
+        displayMessage_Q4(gradeMessage_Q4);
 
         /**
          * Total grade.
