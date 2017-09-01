@@ -128,7 +128,8 @@ public class MainActivity extends AppCompatActivity {
         if (Q3_RadioButton1Checked) {
             RadioButton3 = 0;
         }
-        if (Q3_RadioButton2Checked) {
+
+        else if (Q3_RadioButton2Checked) {
             RadioButton3 = 0;
         }
 
