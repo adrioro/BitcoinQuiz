@@ -1,5 +1,6 @@
 package com.example.android.bitcoinquiz;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * This app offers 4 questions and delivers a greade.
@@ -21,8 +23,12 @@ public class MainActivity extends AppCompatActivity {
     int grade3;
     int grade2;
     int grade1;
-    private String Q4_EditText;  /** Access of a private variable is restricted to the class itself.
-     It can be modified only withn the class, even if it's private. But never outside the class.**/
+    private String Q4_EditText;
+
+    /**
+     * Access of a private variable is restricted to the class itself.
+     * It can be modified only withn the class, even if it's private. But never outside the class.
+     **/
 
 
     @Override
@@ -40,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
      */
     /**
      * This method calculates question 1's grade.
-     *
+     * <p>
      * This constructor is private, so it's objects can be created from any other class.
      */
 
@@ -73,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
      * QUESTION 2 has 3 RadioButtons. The correct answer is the middle RadioButton.
      */
     /**
-     /*
-     This method calculates question 2's grade.
+     * /*
+     * This method calculates question 2's grade.
      */
 
     public int calculateGrade_Q2(boolean Q2_RadioButton1Checked, boolean Q2_RadioButton2Checked, boolean Q2_RadioButton3Checked) {
@@ -103,10 +109,9 @@ public class MainActivity extends AppCompatActivity {
      * QUESTION 3 has 3 RadioButtons. The correct answer is the last RadioButton.
      */
     /**
-    /*
-    This calculates question 3's grade.
-    *
-    */
+     * /*
+     * This calculates question 3's grade.
+     */
 
     public int calculateGrade_Q3(boolean Q3_RadioButton1Checked, boolean Q3_RadioButton2Checked, boolean Q3_RadioButton3Checked) {
 
@@ -175,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
      * Question 1 SUMMARY text. It displays the grade received.
      */
 
-    private String createQuiz_Q1_Summary( boolean Q1_CheckBox1Checked, boolean Q1_CheckBox2Checked, boolean Q1_CheckBox3Checked) {
+    private String createQuiz_Q1_Summary(boolean Q1_CheckBox1Checked, boolean Q1_CheckBox2Checked, boolean Q1_CheckBox3Checked) {
 
         grade1 = calculateGrade_Q1(Q1_CheckBox1Checked, Q1_CheckBox2Checked, Q1_CheckBox3Checked); /** To be used for the total, final grade.**/
 
@@ -344,6 +349,12 @@ public class MainActivity extends AppCompatActivity {
         int gradeTotal = calculateGrade_Total();
         String gradeMessage_Total = createQuiz_total_Summary(gradeTotal);
         displayMessage_total(gradeMessage_Total);
+
+        Context context = getApplicationContext();
+        CharSequence text = "Thank you for completing the text! Your final grade is: " + gradeTotal;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
     }
 
